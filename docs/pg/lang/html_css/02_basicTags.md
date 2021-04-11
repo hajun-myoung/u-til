@@ -2,11 +2,11 @@
 
 HTML을 다루기위해 '태그를 외우는 것'은 옳지 않다고 말했지만, _그럼에도 불구하고,_ 정말 너무 기본적이어서 HTML을 다루는 사람들이라면 당연히 알아보는 태그들이 있어요. 이런 쉬운 태그들을 먼저 만나는 게 HTML을 시작하기에도 좋으니, 몇 개 소개할게요.
 
-## `<hn>` 헤더 태그들
+## 헤더 태그들 `hn`
 
 `<hn>`에서 n 자리에는 1~6까지의 숫자들이 들어가요. 숫자가 <u>커질수록</u> 헤더(제목)의 크기는 <u>작아</u>진답니다! 서로 반대라고 생각하기보다는, '1번째 제목', '2번째 제목'과 같이 생각하는 게 조금 더 도움될거에요. `<h1>`으로 감싸진 제목은 첫 번째 수준의 제목이니, 가장 크다는 느낌으로 알아두는 거죠.
 
-예시: [페이지로 보기](https://hajun-myoung.github.io/study_b/src/languages/html_css/examples/02_001.html)
+예시: [페이지로 보기](./examples/02_001.html)
 
 ```html
 <!DOCTYPE html>
@@ -40,11 +40,15 @@ HTML을 다루기위해 '태그를 외우는 것'은 옳지 않다고 말했지�
 - 모든 헤더들은 기본적으로 Bold(굵게) 처리가 되어있어요.
 - 헤더는 별도로 줄바꿈(`<br>`)을 하지 않아도 알아서 줄을 바꿔요.
 
-## `<u>`, `<i>`, `<b>` 글자 효과주기
+## 글자 효과를 주는 `u`, `i`, `b` 태그
+
+:::danger 권장하지 않는 태그에요.
+이런 태그가 있다는 것 뿐이지, 권장하지 않는 태그에요. css를 통해 글자에 효과를 주는게 나아요.
+:::
 
 각각의 태그 `<u>`, `<i>`, `<b>`는 <u>underline(밑줄)</u>, <i>italic(이탤릭체)</i>, <b>bold(볼드)</b>에서 따온 알파벳이에요. 이 문장에서 보이는 것과 같이 각각 해당하는 효과로 글자를 꾸며주죠.
 
-페이지로 보려면 [여기로 오세요](https://hajun-myoung.github.io/study_b/src/languages/html_css/examples/02_002.html)
+페이지로 보려면 [여기로 오세요](./examples/02_002.html)
 
 ```html
 <!DOCTYPE html>
@@ -61,11 +65,11 @@ HTML을 다루기위해 '태그를 외우는 것'은 옳지 않다고 말했지�
 </html>
 ```
 
-## `<p>` 문단 나누기
+## 문단 나누기 `p`태그
 
 `<p>` 태그는 [01.HTML의 기본 구조](./01_basicStructure.html)의 예시에서도 나온 태그죠. 말 그대로 '문단'을 설정하고 나누는 역할을 수행해요.
 
-나눠진 문단은 자동으로 줄바꿈이 되기도 하죠: [새 창에서 보기](https://hajun-myoung.github.io/study_b/src/languages/html_css/examples/02_003.html)
+나눠진 문단은 자동으로 줄바꿈이 되기도 하죠: [새 창에서 보기](./examples/02_003.html)
 
 ```html
 <!DOCTYPE html>
@@ -85,7 +89,7 @@ HTML을 다루기위해 '태그를 외우는 것'은 옳지 않다고 말했지�
 
 그런데, 단순히 줄바꿈을 위해서 이 태그를 사용하냐구요? 음...그것보다는 특정 영역을 쉽게 컨트롤하기 위해서 자주 쓰죠. 무슨 말이냐면,
 
-[새 창에서 예시 보기](https://hajun-myoung.github.io/study_b/src/languages/html_css/examples/02_004.html)
+[새 창에서 예시 보기](./examples/02_004.html)
 
 ```html
 <!DOCTYPE html>
@@ -137,11 +141,11 @@ style 속성으로 부여할 수 있는 요소들은 몇 가지가 있어요. �
 - `font-family` : 글꼴을 부여할 수 있어요.
   - html에서 지원하는 기본 글꼴들에는 [몇 가지가 있어요.](./htmlFonts.html)
 
-## `<a href=>` 하이퍼링크 걸기
+## 하이퍼링크 걸기 `a href=` 태그
 
 하이퍼링크를 걸 수 있는 아주 쉬운 태그에요.
 
-[새 창에서 예시 보기](https://hajun-myoung.github.io/study_b/src/languages/html_css/examples/02_005.html)
+[새 창에서 예시 보기](./examples/02_005.html)
 
 ```html
 <!DOCTYPE html>
@@ -151,7 +155,7 @@ style 속성으로 부여할 수 있는 요소들은 몇 가지가 있어요. �
   </head>
 
   <body>
-    <a href="https://hajunmyoung.github.io/study_b/">여기를 눌러 접속하세요</a>
+    <a href="https://hajun-myoung.github.io/until/">여기를 눌러 접속하세요</a>
   </body>
 </html>
 ```
@@ -166,18 +170,18 @@ style 속성으로 부여할 수 있는 요소들은 몇 가지가 있어요. �
 <a href="02_basicTags.html#a-href-하이퍼링크-걸기">여기를 눌러보세요</a>
 ```
 
-이렇게 링크를 넘겨주면: <a href="02_basicTags.html#a-href-하이퍼링크-걸기">여기를 눌러보세요</a>  
-다녀오셨나요? 맞아요. 현재 주소(루트)를 기준으로 href가 받은 링크를 찾아요.
+이렇게 링크를 넘겨주면: <a href="02_basicTags.html#하이퍼링크-걸기-a-href-태그">여기를 눌러보세요</a>  
+다녀오셨나요? 맞아요. 현재 주소(경로)를 기준으로 href가 받은 링크를 찾아요.
 
 이 태그를 통해 동작하는 하이퍼링크는 **쉘 에서의 cd 명령어**와 매커니즘이 같아요.
 :::details 그 매커니즘을 이용하면 이렇게 링크를 짤 수 있죠.(꼭 볼 필요는 없어요)
 자, 먼저 여러분이 A라는 사이트에 접속했다고 가정해볼게요. 그 사이트는 이렇게 생겼어요:
 
-<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('/images/html_css/href_001.png')" width="340px" height="303px"></td></tr></table>
+<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('images/html_css/href_001.png')" style="width:340px;"></td></tr></table>
 
 그리고 여러분은 이 사이트에서 `A/B2/D2/e2` 페이지를 보고 있어요:
 
-<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('/images/html_css/href_001.png')" width="340px" height="303px"></td></tr></table>
+<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('images/html_css/href_001.png')" style="width:340px;"></td></tr></table>
 
 여기서, 여러분이 있는 위치는 어디인가요? `A/B2/D2/e2`인가요? 아니에요. 여러분은 `A/B2/D2/`디렉토리에 있고, 거기에 있는 e2라는 파일을 보고 있는 중이죠. 그래서, 그 옆 페이지인 `A/B2/D2/e3`로 넘어가는 건 그냥 해당 페이지를 '읽기만'하면 돼요. 이걸 위한 코드는 다음과 같이 짜여지요:
 
@@ -187,7 +191,7 @@ style 속성으로 부여할 수 있는 요소들은 몇 가지가 있어요. �
 
 그렇다면, `/D3/` 디렉토리에 있는 `e4` 파일을 읽고싶다면, e4페이지를 보고 싶다면 링크를 어떻게 짜야 할까요? 순서를 먼저 파악해 볼게요:
 
-<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('/images/html_css/href_002.png')" width="340px" height="303px"></td></tr></table>
+<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('/images/html_css/href_002.png')" style="width:340px;"></td></tr></table>
 1. 먼저, 현재 있는 디렉토리 `/D2/`의 상위 디렉토리인 `/B2/`로 이동해요.
 1. 그리고, `/B2/`의 하위 디렉토리이자 목적지인 `/D3/`로 가요.
 1. 거기서 파일 `e4`를 읽어요.
@@ -244,12 +248,8 @@ src
 - `title` : 링크에 대한 설명을 적을 수 있어요.
 
 ```html
-<a href="https://github.com/" target="_blank" title="깃헙: 새창"
-  >여기를 클릭하세요!</a
->
-<a href="https://github.com/" target="_self" title="깃헙: 현재창"
-  >self 옵션 적용 예에요.</a
->
+<a href="https://github.com/" target="_blank" title="깃헙: 새창">여기를 클릭하세요!</a>
+<a href="https://github.com/" target="_self" title="깃헙: 현재창">self 옵션 적용 예에요.</a>
 ```
 
 새 창에서 여는 예시는 여기 있구요: <a href="https://github.com/" target="_blank" title="깃헙: 새창">여기를 클릭하세요!</a>  
@@ -257,7 +257,7 @@ src
 
 아, 현재 창에서 이동하셨다면 이 위치로 돌아오는 건 알아서 하서야 해요:smiley:
 
-## `<img>` 이미지 넣기
+## 이미지 넣기 `img`태그
 
 이미지를 문서에 넣게 해 주는 태그에요. 이 `<img>`태그 말고도 같은 기능을 수행할 수 있는 태그들(ex. `<embed>`)이 있지만, 이미지를 넣는 게 목적이라면 그냥 `<img>`태그로 해당 작업을 수행하는 게 나을거에요.
 
@@ -289,7 +289,7 @@ src
 - `width` : 이미지의 너비를 임의지정할 수 있어요.
 - `height` : 이미지의 높이를 임의지정할 수 있어요.
 
-## 요약 및 점검
+## 요약
 
 기본이라고는 하지만 결코 내용이 적지 않았던 것 같네요 :smiley:
 
@@ -301,21 +301,21 @@ src
 1. 하이퍼링크를 거는 `<a href="">` 태그
 1. 이미지를 넣고, 조절하고, 오류에 대처하는 `<img>` 태그
 
+## 점검
 이 각각 태그와 다룬 내용들에 대해 짧은 퀴즈를 준비했으니, 한 번 풀어보세요!
-
-:::quiz 헤더 태그는 몇 가지 수준을 제공하고, 누가 가장 큰가요?
+- 헤더 태그는 몇 가지 수준을 제공하고, 누가 가장 큰가요?
 :::details 정답
 `<h1>`부터 `<h6>`까지 총 6가지 수준을 제공하고, `<h1>`이 첫 번째 제목으로 가장 커요.
 :::
 
-:::quiz 글자에 효과를 주는 태그들은 어떤 의미를 가지고 있나요?
+- 글자에 효과를 주는 태그들은 어떤 의미를 가지고 있나요?
 `<u>`, `<i>`, `<b>` 태그 각각의 의미요.
 :::details 정답
 각각 Underline의 u, Italic의 i, Bold의 b를 의미해요.
 :::
 
-:::quiz 구글 홈을 새 창으로 여는 링크를 코딩해보세요. 설명 '새창:구글'이 뜨는 것도 포함해서요.
-<a href="https://google.co.kr" target="_blank" title="새창:구글">링크</a>
+- 구글 홈을 새 창으로 여는 링크를 코딩해보세요. 설명 '새창:구글'이 뜨는 것도 포함해서요.
+<a href="https://google.co.kr" target="_blank" title="새창:구글">이렇게요</a>
 :::details 정답
 
 ```html
@@ -323,16 +323,16 @@ src
 ```
 
 :::
-
-:::quiz 하이퍼링크 태그를 이용해, 다음 조건을 충족시키면서 목표를 달성하는 코드를 짜보세요:
+- 하이퍼링크 태그를 이용해, 다음 조건을 충족시키면서 목표를 달성하는 코드를 짜보세요:
 여러분은 `A/B2/D2/e2/`페이지를 읽고있어요:
 
-<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('/images/html_css/href_001.png')" width="340px" height="303px"></td></tr></table>
+<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('/images/html_css/href_001.png')" style="width:340px;"></td></tr></table>
 
 1. 자, c1 페이지로 이동시키는 링크를 짜 보세요:
 2. 그 상태(c1으로 간 상태)에서 e1으로 가는 링크를 짜 보세요:
-   :::details 정답
-   1번)
+
+:::details 정답
+1번)
 
 ```html
 <a href="../../B3/c1">이렇게 가면 돼요.</a>
@@ -343,16 +343,16 @@ src
 ```html
 <a href="../B1/D1/e1">2번도 어렵진 않죠</a>
 ```
-
 :::
 
-:::quiz 이미지 태그에 부여되는 속성들은 각각 어느 역할을 수행하나요? 각 속성은 필수인가요?
+- 이미지 태그에 부여되는 속성들은 각각 어느 역할을 수행하나요? 각 속성은 필수인가요?
 
 1. `src`
 1. `alt`
 1. `width` & `height`
-   :::details 정답
+
+:::details 정답
 1. 이미지의 위치, 즉 소스의 경로를 알려줘요. 필수에요.
 1. 이미지 불러오기 오류 시 대체 텍스트를 입력해놓을 수 있어요. 선택사항이에요.
 1. 이미지의 너비&높이를 임의로 지정할 수 있어요. 선택사항이에요.
-   :::
+:::
