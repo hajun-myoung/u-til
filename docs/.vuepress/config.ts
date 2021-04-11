@@ -160,7 +160,6 @@ export default defineUserConfig<DefaultThemeOptions>({
                     children: [
                         'README.md',
                         'direction.md',
-                        'updateLog.md',
                     ]
                 }
             ],
