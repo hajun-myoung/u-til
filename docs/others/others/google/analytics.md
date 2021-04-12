@@ -1,8 +1,4 @@
----
-sidebarDepth: 3
----
-
-# 구글 애널리틱스(Analytics)
+yarn # 구글 애널리틱스(Analytics)
 
 구글 애널리틱스는 말 그대로 특정 사이트를 '분석'하게끔 해 주는 도구(tool)에요.
 
