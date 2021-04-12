@@ -6,6 +6,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     title: 'UNTIL',
     description: "Until is Not Today I Learned",
     base: '/until/',
+    dest: './dist',
     themeConfig: {
         logo: '/images/logo.jpg',
         lastUpdated: true,
