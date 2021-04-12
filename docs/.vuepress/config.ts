@@ -25,19 +25,19 @@ export default defineUserConfig<DefaultThemeOptions>({
                         children: [
                             {
                                 text: 'C',
-                                link: '/pg/lang/c/'
+                                link: '/tech/pg/lang/c/'
                             },
                             {
                                 text: 'Python',
-                                link: '/pg/lang/python/'
+                                link: '/tech/pg/lang/python/'
                             },
                             {
                                 text: 'JavaScript',
-                                link: '/pg/lang/js/'
+                                link: '/tech/pg/lang/js/'
                             },
                             {
                                 text: 'HTML&CSS',
-                                link: '/pg/lang/html_css/'
+                                link: '/tech/pg/lang/html_css/'
                             },
                         ]
                     },
@@ -46,7 +46,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                         children: [
                             {
                                 text: '준비중입니다.',
-                                link: '/pg/theory/'
+                                link: '/tech/pg/theory/'
                             },
                         ]
                     },
@@ -55,11 +55,11 @@ export default defineUserConfig<DefaultThemeOptions>({
                         children: [
                             {
                                 text: '아두이노',
-                                link: '/others/making/arduino/'
+                                link: '/tech/making/arduino/'
                             },
                             {
                                 text: '프로세싱',
-                                link: '/others/making/processing/'
+                                link: '/tech/making/processing/'
                             },
                         ]
                     },
@@ -68,11 +68,11 @@ export default defineUserConfig<DefaultThemeOptions>({
                         children: [
                             {
                                 text: 'Google',
-                                link: '/others/others/google/'
+                                link: '/tech/others/google/'
                             },
                             {
                                 text: 'Vuepress',
-                                link: '/others/others/vuepress/'
+                                link: '/tech/others/vuepress/'
                             },
                         ]
                     },
@@ -140,11 +140,11 @@ export default defineUserConfig<DefaultThemeOptions>({
                         children: [
                             {
                                 text: '음향 엔지니어링(기초)',
-                                link: '/hobby/sound-engineering/basic/'
+                                link: '/life//hobby/sound-engineering/basic/'
                             },
                             {
                                 text: '영상 편집',
-                                link: '/hobby/video-editing/'
+                                link: '/life//hobby/video-editing/'
                             }
                         ]
                     },
@@ -166,7 +166,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
 
             // programming languages
-            '/pg/lang/c/': [
+            '/tech/pg/lang/c/': [
                 {
                     isGroup: true,
                     text: 'C언어',
@@ -176,7 +176,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     ]
                 }
             ],
-            '/pg/lang/python/': [
+            '/tech/pg/lang/python/': [
                 {
                     isGroup: true,
                     text: 'Python(파이썬)',
@@ -185,7 +185,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     ]
                 }
             ],
-            '/pg/lang/js/': [
+            '/tech/pg/lang/js/': [
                 {
                     isGroup: true,
                     text: 'JavaScript(자바 스크립트)',
@@ -194,7 +194,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     ]
                 }
             ],
-            '/pg/lang/html_css/': [
+            '/tech/pg/lang/html_css/': [
                 {
                     isGroup: true,
                     text: 'HTML&CSS',
@@ -209,12 +209,38 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
 
             // programming theory
-            '/pg/theory/': [
+            '/tech/pg/theory/': [
                 {
                     isGroup: true,
                     text: '프로그래밍 이론',
                     children: [
                         'READMD.md',
+                    ]
+                }
+            ],
+
+            // others: vuepress and google
+            '/tech/others/google/': [
+                {
+                    isGroup: true,
+                    text: '구글,Google',
+                    children: [
+                        'README.md',
+                        'analytics.md',
+                        'search_console.md',
+                    ]
+                }
+            ],
+            '/tech/others/vuepress/': [
+                {
+                    isGroup: true,
+                    text: '뷰프레스와 블로그 셋팅',
+                    children: [
+                        'README.md',
+                        'ready_for_blog.md',
+                        'guideTransl.md',
+                        'plugins.md',
+                        'rfv_errors.md'
                     ]
                 }
             ],
@@ -265,7 +291,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
 
             // others: arduino and processing
-            '/others/making/arduino/': [
+            '/tech/making/arduino/': [
                 {
                     isGroup: true,
                     text: '아두이노',
@@ -274,7 +300,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     ]
                 }
             ],
-            '/others/making/processing/': [
+            '/tech/making/processing/': [
                 {
                     isGroup: true,
                     text: '프로세싱',
@@ -284,34 +310,18 @@ export default defineUserConfig<DefaultThemeOptions>({
                 }
             ],
 
-            // others: google and vuepress
-            '/others/others/google/': [
+            // life (with hobby)
+            '/life/reading/': [
                 {
                     isGroup: true,
-                    text: '구글,Google',
+                    text: "독서와 서평",
                     children: [
                         'README.md',
-                        'analytics.md',
-                        'search_console.md',
-                    ]
-                }
-            ],
-            '/others/others/vuepress/': [
-                {
-                    isGroup: true,
-                    text: '뷰프레스와 블로그 셋팅',
-                    children: [
-                        'README.md',
-                        'ready_for_blog.md',
-                        'guideTransl.md',
-                        'plugins.md',
-                        'rfv_errors.md'
                     ]
                 }
             ],
 
-            // hobby
-            '/hobby/sound-engineering/basic/': [
+            '/life/hobby/sound-engineering/basic/': [
                 {
                     isGroup: true,
                     text: '음향 엔지니어링의 기본',
@@ -321,21 +331,10 @@ export default defineUserConfig<DefaultThemeOptions>({
                     ]
                 }
             ],
-            '/hobby/video-editing/': [
+            '/life/hobby/video-editing/': [
                 {
                     isGroup: true,
                     text: '영상편집',
-                    children: [
-                        'README.md',
-                    ]
-                }
-            ],
-
-            // life
-            '/life/reading/': [
-                {
-                    isGroup: true,
-                    text: "독서와 서평",
                     children: [
                         'README.md',
                     ]

@@ -45,7 +45,7 @@
 
 지속적으로 일어나는 코드의 변화를 담고, `개발 과정`이 저장되는 거죠. 이것들이 저장되는 공간이 바로 깃허브의 '레포지토리(저장소)' 구요.  
 아, 깃허브가 단순히 여러 버전을 저장만 해 주는 건 아니에요. 언제 어디서나 깃허브에 로그인하고 '깃'이 설치되어 있다면 로컬 저장소에 코드나 프로그램을 불러올 수 있기도 하고, 변화가 생겼을 때 무엇이 바뀌었는지 볼 수도 있어요. 아래 그림은 제 블로그 설정파일(.vuepress/config.js)의 변화 예시에요.
-<img :src="$withBase('/vuepress/git_example_001.png')" alt="Chages_example">
+<img :src="$withBase('/images/vuepress/git_example_001.png')" alt="Chages_example">
 그림을 보면, '기존 47번 줄의 ~~내용이 새로운 47번 줄 ~~로 바뀌었구나'는 걸 한 눈에 볼 수 있죠.
 
 > 개발 과정이 저장된다는 점에서,  
@@ -53,7 +53,7 @@
 
 그렇다면 공동 작업은 어떻게 도울까요? '브랜치'라는 깃허브의 기능이 바로 그 해답이에요.  
 아래 그림은 [공식 가이드](https://guides.github.com/activities/hello-world/)에 있는 브랜치에 대한 설명이에요.
-<img :src="$withBase('/vuepress/branching.png')" alt="branching">
+<img :src="$withBase('/images/vuepress/branching.png')" alt="branching">
 마스터 브랜치에서 당신만의 새 브렌치(복사본)를 나눠내는 행동이 바로 브랜칭이에요.  
 여기에 수정하고 싶은 것들을 마음껏 작업하고, 마스터 브랜치에 올라온 새 변경사항들을 당겨오고, 동료 작업자들과 변경 사항에 대해 토론을 주고받아 '변경사항이 본 프로젝트에 적합하다'고 판단되면 마스터 브랜치와 합치게 되는 겁니다.
 
@@ -120,7 +120,7 @@ C/C++ Extension을 깔아주면, C/C++의 구문 강조, 코드 편집 등이 �
 ## 준비물 3: Clone it!
 
 깃과 레포지토리가 모두 준비되었다면, 레포지토리를 가져옵시다.  
-<img :src="$withBase('/vuepress/git_clone.png')" alt="gitClone">
+<img :src="$withBase('/images/vuepress/git_clone.png')" alt="gitClone">
 깃허브 레포지토리에 들어가면, 오른쪽 위에 초록색 '↓Code' 버튼이 있어요.  
 이 버튼을 눌러서 나오는 주소를 복사해두세요.
 

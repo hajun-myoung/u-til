@@ -17,7 +17,7 @@
 ### 1.구글 서치 콘솔에 사이트 등록
 
 자 먼저, [구글 서치 콘솔](https://search.google.com/search-console/welcome)에 접속합니다. 여기서, 여러분이 검색엔진(구글 검색엔진)에 노출시키고 싶은 블로그의 주소를 등록할텐데요, 오른쪽 'URL 접두어'를 선택해주세요. (깃허브를 통해 블로그를 디플로잉하고 있다면 여기가 맞아요.)
-<img :src="$withBase('/google/gsc_001.png')" alt="search_console_guide_001">
+<img :src="$withBase('/images/google/gsc_001.png')" alt="search_console_guide_001">
 
 > 도메인을 선택하고 여러분의 블로그 주소를 넣게 되면, '계속' 버튼이 비활성화 될 거에요.
 > :::details 블로그는 '도메인'방식으로 서치 콘솔을 이용할 수 없나요?
@@ -194,11 +194,11 @@ URL을 치고, 계속하고자 하면 '소유권 증명'이 필요하다고 할�
 색인의 생성은 다음과 같은 방법으로 가능해요.
 
 1. 먼저, URL 검사를 실행해주세요.
-<img :src="$withBase('/google/gsc_002.png')" alt="url검사">
+<img :src="$withBase('/images/google/gsc_002.png')" alt="url검사">
 1. 블로그 주소를 그대로 입력하세요.(루트 주소요!)
-<img :src="$withBase('/google/gsc_003.png')" alt="블로그주소">
+<img :src="$withBase('/images/google/gsc_003.png')" alt="블로그주소">
 1. 아마, 색인이 생성되어있지 않을거에요. 요청하세요.
-<img :src="$withBase('/google/gsc_004.png')" alt="요청">
+<img :src="$withBase('/images/google/gsc_004.png')" alt="요청">
 
 여기까지 하시면, 기본적으로 여러분의 블로그가 구글 검색에 노출되기 시작해요. 저는 사이트맵 제출을 권장하긴 하지만, ***우선은 구글 검색에 사이트 노출시키기에 성공하셨습니다!***
 
@@ -234,7 +234,7 @@ xml은 html과 달리 '사용하기 위한 특정 도구'가 지정되어있지 
 
 #### 제출
 제출은 구글 서치 콘솔에서, 사이트맵 주소를 입력하면 돼요. 정확히는 사이트맵이 어디에 올라가 있는지를 입력하면 되는 거죠. 만약 여러분이 저와 같이 `@vuepress-plugin-sitemap`을 사용했다면, 빌드를 하는 과정에서 /dist/에 sitemap.xml이 생성되었을 거에요. 그리고 이 내용은 그대로 gh-pages 브랜치에 deploying 되었을 거구요. 따라서,
-<img :src="$withBase('/google/gsc_005.png')" alt="Sitemap 제출페이지">
+<img :src="$withBase('/images/google/gsc_005.png')" alt="Sitemap 제출페이지">
 의 빈칸에, sitemap.xml만 입력하고 제출하면 돼요!
 
 *혹시, 이 과정을 수동으로 하고 싶으시다면 [여기](../vuepress/rfv_errors.html#특정-파일-추가하기)에서 특정 파일을 gh-pages에 포함시켜서 deploying하는 방법을 확인해보세요!*
