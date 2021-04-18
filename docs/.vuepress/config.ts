@@ -26,7 +26,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         ],
     ],
     themeConfig: {
-        logo: '/images/logo.jpg',
+        logo: 'images/logo.png',
         lastUpdated: true,
         repo: 'hajun-myoung/until',
         home: '/',

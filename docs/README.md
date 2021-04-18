@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /images/logo.jpg
+heroImage: images/logo.png
 heroAlt: until-logo
 heroText: UNTIL
 tagline: Until is Not Today I Learned
