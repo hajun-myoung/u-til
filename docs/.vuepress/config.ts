@@ -7,6 +7,24 @@ export default defineUserConfig<DefaultThemeOptions>({
     description: "Until is Not Today I Learned",
     base: '/until/',
     dest: './dist',
+    plugins: [
+        [
+            "@vuepress/container",
+            {
+              type: "right",
+              defaultTitle: "",
+            },
+        ],
+        [
+            "@vuepress/container",
+            {
+              type: "theorem",
+              before: (info: string): string =>
+              `<div class="custom-container theorem">${info ? `<p class="custom-container-title">${info}</p>` : ''}\n`,
+              after: (): string => '</div>',
+            },
+        ],
+    ],
     themeConfig: {
         logo: '/images/logo.jpg',
         lastUpdated: true,
