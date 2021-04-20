@@ -31,5 +31,5 @@
 보풀제거기,
 |제품 이미지|배터리 위치|
 |:---:|:---:|
-|<img :src="$withBase('/images/battery-to-wired/target_001.jpg')"> | <img :src="$withBase('/images/battery-to-wired/target_002.jpg')">|
+|<img :src="$withBase('images/battery-to-wired/target_001.jpg')"> | <img :src="$withBase('images/battery-to-wired/target_002.jpg')">|
 |보풀트레이를 열면 배터리박스가 있음.<br>(대체 왜...?)|AA(1.5V) X2<br>3V 전압으로 생각됨.|

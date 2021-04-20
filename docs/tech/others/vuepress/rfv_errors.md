@@ -51,7 +51,7 @@ $ ExecutionPolicy
 (대소문자는 중요하지 않아요)
 
 - 아래 그림처럼 'Restricted'라고 뜨면, 보안 정책 문제가 맞습니다.  
-  <img :src="$withBase('/images/vuepress/ps_001.png')" alt="restricted">
+  <img :src="$withBase('images/vuepress/ps_001.png')" alt="restricted">
 
 3. 이제 보안 정책을 풀어줍니다.
 
@@ -60,7 +60,7 @@ $ Set-ExecutionPolicy unRestricted
 ```
 
 중간에 정말 변경할 건지 묻는 질문에 'y'로 동의해주시는 거 잊지 말구요.  
-<img :src="$withBase('/images/vuepress/ps_002.png')" alt="settingPs">
+<img :src="$withBase('images/vuepress/ps_002.png')" alt="settingPs">
 
 4. 자, 정말 변경되었는지 확인해봅니다.
 
@@ -68,7 +68,7 @@ $ Set-ExecutionPolicy unRestricted
 $ ExecutionPolicy
 ```
 
-<img :src="$withBase('/images/vuepress/ps_003.png')" alt="compleps">
+<img :src="$withBase('images/vuepress/ps_003.png')" alt="compleps">
 
 다 하셨다면, `yarn -version`을 명령해 문제가 해결되었는지 확인해보세요.
 

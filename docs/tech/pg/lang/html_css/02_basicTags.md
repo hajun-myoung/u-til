@@ -191,7 +191,7 @@ style 속성으로 부여할 수 있는 요소들은 몇 가지가 있어요. �
 
 그렇다면, `/D3/` 디렉토리에 있는 `e4` 파일을 읽고싶다면, e4페이지를 보고 싶다면 링크를 어떻게 짜야 할까요? 순서를 먼저 파악해 볼게요:
 
-<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('/images/html_css/href_002.png')" style="width:340px;"></td></tr></table>
+<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('images/html_css/href_002.png')" style="width:340px;"></td></tr></table>
 1. 먼저, 현재 있는 디렉토리 `/D2/`의 상위 디렉토리인 `/B2/`로 이동해요.
 1. 그리고, `/B2/`의 하위 디렉토리이자 목적지인 `/D3/`로 가요.
 1. 거기서 파일 `e4`를 읽어요.
@@ -326,7 +326,7 @@ src
 - 하이퍼링크 태그를 이용해, 다음 조건을 충족시키면서 목표를 달성하는 코드를 짜보세요:
 여러분은 `A/B2/D2/e2/`페이지를 읽고있어요:
 
-<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('/images/html_css/href_001.png')" style="width:340px;"></td></tr></table>
+<table><tr style="border: 0px;"><td style="width: 655px; text-align:center; border: 0px;"><img :src="$withBase('images/html_css/href_001.png')" style="width:340px;"></td></tr></table>
 
 1. 자, c1 페이지로 이동시키는 링크를 짜 보세요:
 2. 그 상태(c1으로 간 상태)에서 e1으로 가는 링크를 짜 보세요:

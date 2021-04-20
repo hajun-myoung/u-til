@@ -28,10 +28,10 @@
 - 먼저, [구글 애널리틱스](https://analytics.google.com/)에 접속하세요.
   - 로그인이 필요하시다면 로그인 하시구요,
 - '무료로 계정 만들기'를 눌러주세요.
-  <img :src="$withBase('/images/google/ga_001.png')" alt="무료로 계정 만들기">
+  <img :src="$withBase('images/google/ga_001.png')" alt="무료로 계정 만들기">
 
 - 계정 이름을 결정하기 어려우시다면, 그냥 사이트 이름과 일치시키는 편이 속편해요.
-  <img :src="$withBase('/images/google/ga_002.png')" alt="계정 이름">
+  <img :src="$withBase('images/google/ga_002.png')" alt="계정 이름">
 
 - 옵션들을 잘 읽어보시고, 원하지 않는 기능이 있다면 제외할 수 있구요,
   - 다 되었다면 '다음'단계로 넘어갑시다.
