@@ -375,6 +375,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: "논-테크 공부: 수능수학",
                     children: [
                         'README.md',
+                        '2022exam.md'
                     ]
                 }
             ]
