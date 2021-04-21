@@ -7,6 +7,15 @@ export default defineUserConfig<DefaultThemeOptions>({
     description: "Until is Not Today I Learned",
     base: '/until/',
     dest: './dist',
+    head: [
+        ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' }],
+        ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css' }],
+        // 두번째 태그는 recomended 돼서 추가한 것일 뿐, 없어도 math-expression 정상적으로 됨
+    ],
+    extendsMarkdown: (md) => {
+        let mk = require('markdown-it-katex');
+        md.use(mk, {"throwOnError" : false, "errorColor" : " #cc0000"});
+    },
     plugins: [
         [
             "@vuepress/container",
