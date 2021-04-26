@@ -13,14 +13,17 @@ export default defineUserConfig<DefaultThemeOptions>({
         // 두번째 태그는 recomended 돼서 추가한 것일 뿐, 없어도 math-expression 정상적으로 됨
     ],
     extendsMarkdown: (md) => {
-        let mk = require('markdown-it-katex');
-        md.use(mk, {"throwOnError" : false, "errorColor" : " #cc0000"});
+        let katex = require('markdown-it-katex');
+        
+        let orignalRender = md.render;
+        let MATH_TAG = /<span class="katex">/g
+        let REPLACER = '<span v-pre class="katex">'
+        md.render = function(src, env) {
+            let sub = orignalRender(src, env);
+            return sub.replace(MATH_TAG, REPLACER);
+        }
 
-        // let orignalRender = md.render;
-        // md.render = function(src, env) {
-        //     let sub = orignalRender(src, env);
-        //     return sub.replace(/<span class="katex-mathml"><math>[\s|\S]*<\/math><\/span>/g,'<p>에러에요!</p>');
-        // }
+        md.use(katex, {"throwOnError" : false, "errorColor" : " #cc0000"});
     },
     plugins: [
         [
