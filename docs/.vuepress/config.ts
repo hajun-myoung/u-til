@@ -176,11 +176,11 @@ export default defineUserConfig<DefaultThemeOptions>({
                         children: [
                             {
                                 text: '음향 엔지니어링(기초)',
-                                link: '/life//hobby/sound-engineering/basic/'
+                                link: '/life/hobby/sound-engineering/basic/'
                             },
                             {
                                 text: '영상 편집',
-                                link: '/life//hobby/video-editing/'
+                                link: '/life/hobby/video-editing/'
                             }
                         ]
                     },
