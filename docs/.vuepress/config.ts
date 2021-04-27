@@ -100,7 +100,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                         ]
                     },
                     {
-                        text: '기타',
+                        text: '블로그',
                         children: [
                             {
                                 text: 'Google',
@@ -255,11 +255,11 @@ export default defineUserConfig<DefaultThemeOptions>({
                 }
             ],
 
-            // others: vuepress and google
-            '/tech/others/google/': [
+            // blog: vuepress and google
+            '/tech/blog/google/': [
                 {
                     isGroup: true,
-                    text: '구글,Google',
+                    text: '구글 | Google',
                     children: [
                         'README.md',
                         'analytics.md',
@@ -267,7 +267,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     ]
                 }
             ],
-            '/tech/others/vuepress/': [
+            '/tech/blog/vuepress/': [
                 {
                     isGroup: true,
                     text: '뷰프레스와 블로그 셋팅',
