@@ -64,12 +64,12 @@ export default defineUserConfig<DefaultThemeOptions>({
                                 link: '/tech/pg/lang/c/'
                             },
                             {
-                                text: 'Python',
-                                link: '/tech/pg/lang/python/'
-                            },
-                            {
                                 text: 'JavaScript',
                                 link: '/tech/pg/lang/js/'
+                            },
+                            {
+                                text: 'Python',
+                                link: '/tech/pg/lang/python/'
                             },
                             {
                                 text: 'HTML&CSS',
