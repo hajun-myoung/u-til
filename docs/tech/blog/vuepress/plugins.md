@@ -7,10 +7,10 @@
 기존에 사용하던 플러그인을 한번 싹 날렸어요.  
 원래는 다음과 같은 플러그인들을 사용했었답니다: 
   1. back-to-top `현재는 기본적용`
-  1. google Analytics `적용여부 확인안함` `추후 적용예정`
-  1. Coontainer `더 이상 적용안됨` `앞으로도 적용계획 없음`
-  1. Theme config : Smooth Scrolling `더 이상 적용안됨` `추후 적용예정`
-  1. sitemap 생성기 `더 이상 적용안됨` `추후 적용예정`
+  2. Container `수정하여 적용함`
+  3. google Analytics `적용여부 확인안함` `추후 적용예정`
+  4. Theme config : Smooth Scrolling `더 이상 적용안됨` `추후 적용예정`
+  5. sitemap 생성기 `더 이상 적용안됨` `추후 적용예정`
 :::
 
 ## `[Official Plugin]` back-to-top
@@ -19,4 +19,9 @@
 일정 이상 스크롤해야 나타나고, 뷰프레스 공식 플러그인 중 하나랍니다.
 
 ### 설치 및 적용
-vuepress 1 에서와는 다르게, 이제는 기본으로 적용되는 항목이에요.
+vuepress1 과는 달리 기본 적용 항목임.
+
+## Container
+`config.ts` 참고해서 내용 적기.
+
+### 설치 및 적용
