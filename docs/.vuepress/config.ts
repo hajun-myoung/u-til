@@ -104,11 +104,11 @@ export default defineUserConfig<DefaultThemeOptions>({
                         children: [
                             {
                                 text: 'Google',
-                                link: '/tech/others/google/'
+                                link: '/tech/blog/google/'
                             },
                             {
                                 text: 'Vuepress',
-                                link: '/tech/others/vuepress/'
+                                link: '/tech/blog/vuepress/'
                             },
                         ]
                     },
