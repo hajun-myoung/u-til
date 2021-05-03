@@ -260,32 +260,35 @@ VScode를 쓰시나요? 거기서 파일을 만들면 해결돼요.
 주로 *렌더링 오류* 이며, 특정 *태그* 를 뷰프레스가 렌더링하지 못해 발생하는 오류일 확률이 커요.
 
 ### Cannot create property '__probs' on string 'U'
-밑 '참고' 문단에 넣은 예시이기도 해요. [블로그 사전준비 카테고리](./ready_for_blog.html)에서 발생한 렌더링 오류에요.  
+밑 '참고' 문단에 넣은 예시이기도 해요. [블로그 사전준비 문서](./ready_for_blog.html)에서 발생한 렌더링 오류에요.  
 
 오류 메시지: 
 <img :src="$withBase('images/vuepress/cannot-01.PNG')">
 
 ### 원인
-[해당 문서](./ready_for_blog.html)의 [6번째 문단 '준비물 3. clone it'](./ready_for_blog.html#준비물-3-clone-it)에서 Code 버튼 왼쪽에 있는 아래 방향 화살표를 재현하고자 `<u>↓</u>` 를 페이지에 삽입했어요.  
-> `<u> 태그`는 해당 태그로 감싸진 텍스트에 밑줄을 치는 효과.
+[해당 문서](./ready_for_blog.html)의 [6번째 문단 '준비물 3. clone it'](./ready_for_blog.html#준비물-3-clone-it)에서 Code 버튼 왼쪽에 있는 아래 방향 화살표를 재현하고자 `<u>↓</u>` 를 페이지에 삽입했어요.   
+> `<u>`태그는 해당 태그로 감싸진 텍스트에 밑줄을 치는 효과를 줘요.
 
-하지만 이 `<u> 태그`를 뷰프레스 프레임워크는 어떻게 렌더링해야할 지 몰라 발생된 오류에요.
+하지만 이 `<u>`태그를 뷰프레스 프레임워크는 어떻게 렌더링해야할 지 몰라 발생된 오류에요.
 
 ### 해결
-`<u> 태그`를 지웠어요.
+꼭 뷰프레스가 아니더라도 권장되지 않는 `<u>`태그를 지웠어요.
 
 ### Cannot create property '__probs' on string 'math'
 `/논테크/수능/수학/` 카테고리에 해당하는 문서에 수식을 쓰고자 다양한 플러그인들을 시도하다가 발생한 오류에요. 이 오류가 발생될 당시 플러그인은 'KaTeX'로 정했었어요.  
 
-오류이미지:  
+오류 메시지:  
 <img :src="$withBase('images/vuepress/cannot-02.PNG')">
 
 ### 원인
 KaTeX 플러그인은 마크다운에서 TeX 문법으로 작성된 텍스트를 알맞은 수식으로 빠르게 변환시켜요.  
-`config.ts` 파일의 수정을 통해 뷰프레스가 페이지를 `.html` 파일로 생성하기 전에 TeX를 먼저 거치게 되죠. 문제는, 여기서 `<math> 태그`가 생성된다는 점이에요.
+
+`config.ts`의 수정으로 마크다운 파일을 KaTeX가 먼저 렌더링하는데, 여기서 `<math>`태그가 생성돼요. 뷰프레스 프레임웤은 이걸 렌더링하지 못하기 때문에 에러가 나구요.
 
 ### 해결
-config.ts 에서 마크다운의 렌더링 함수를 다시 설정했어요. 가장 처음 시도한 건 오류를 내는 `<math> 태그` 항목의 상위항목인 `<span class="katex-mathml">` 자체를 날려버리는 거였어요:
+config.ts 에서 마크다운의 렌더링 함수를 다시 설정했어요.  
+첫 시도는 오류를 내는 `<math>`의 상위항목인 `<span class="katex-mathml">`를 날려버리는 거였어요
+> (당연히 `<span>`부터 `</span>`까지 전부요.
 ```ts
 ...
    extendsMarkdown: (md) => {
@@ -293,8 +296,7 @@ config.ts 에서 마크다운의 렌더링 함수를 다시 설정했어요. 가
 
       let orignalRender = md.render;
       md.render = function(src, env) {
-         let sub = orignalRender(src, env); //원본 마크다운 렌더러를 저장
-         // 원본 렌더러에서 원하는 태그를 찾아 교체하는 함수(replace)를 사용
+         let sub = orignalRender(src, env);
          return sub.replace(/<span class="katex-mathml"><math>[\s|\S]*<\/math><\/span>/g,'<p>에러에요!</p>');
       }
 
@@ -302,10 +304,11 @@ config.ts 에서 마크다운의 렌더링 함수를 다시 설정했어요. 가
    },
 ...
 ```
-**하지만**, 이 방법으로는 문제가 해결되지 않았어요.  
-오히려 `<span>` 태그의 짝이 안 맞으면서 **Invalid endtag** 오류를 계속 뿜어댔죠.  
+**하지만**, 이 방법으로는 해결되지 않았어요.  
 
-그래서 [이 문제를 해결한 걸로 보이는 블로그의 코드](https://github.com/Maorey/Blog/blob/ac5ced6deb3bbec689c672ec425640a0fba598f3/docs/.vitepress/config.js#L77)에서 영감을 받아 이렇게 수정했어요:
+오히려 `<span>` 태그의 쌍이 안 맞으면서 **Invalid endtag** 오류를 계속 뿜어댔죠. 코드 자체는 '틀렸다'고 볼 만한 곳이 없어, 파서 문제라고 생각하고 있어요.  
+
+그래서 [관련된 이슈](https://github.com/vuejs/vitepress/issues/229)에서 찾은 [동일한 문제를 해결한 걸로 보이는 블로그의 코드](https://github.com/Maorey/Blog/blob/ac5ced6deb3bbec689c672ec425640a0fba598f3/docs/.vitepress/config.js#L77)에서 영감을 받아 이렇게 수정했어요:
 ```ts
 ...
    extendsMarkdown: (md) => {
@@ -323,13 +326,14 @@ config.ts 에서 마크다운의 렌더링 함수를 다시 설정했어요. 가
     },
 ...
 ```
-수정하는 방향이 달아요. 문제가 되는 태그를 없애는 것이 아니라 `span`에 `v-pre`라는 걸 추가해줬어요.  
-`v-pre`는 붙은 클래스가 vuepress에게 의미가 없는 것임을 알려줘서, 무시하고 넘어가게끔 도와줘요. 따라서, 그 어떤 오류도 발생하지 않을 수 있죠.
+이번에는 문제가 되는 span 클래스를 없애는 것이 아니라 `span`에 `v-pre`를 추가했어요. 이 v-pre는...
 :::theorem 'v-pre'는 뷰프레스에 쓰는 directive 에요.
 이 디렉티브는 특정 엘리먼트를 무시하는데에 사용 됩니다. 이걸 사용하므로서, Vue 시스템에서 해당 엘리먼트는 지시문이 없다는걸 인식하게 되어 그 엘리먼트 내부의 자식엘리먼트들을 신경쓰지 않고 그냥 건너뜁니다.
 :::right
 _from. [velopert.com/3044](https://velopert.com/3044)_
 :::
+
+따라서, 문제가 되는 `<math>`를 포함한 `<span class="katex">`를 뷰프레스가 무시하게 되어서, 아무런 오류가 발생하지 않게 돼요.
 
 ### 참고
 렌더링 문제일 경우, '어떤 문서'에서 오류가 발생했는지를 보는 게 꽤 의미있어요. 방법은 간단해요:  
