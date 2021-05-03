@@ -1,18 +1,19 @@
 # 몇 가지 오류와 대처
 
 이 문서는 뷰프레스 프레임워크를 사용하여 블로그를 작성하면서, 맞닥뜨렸던 오류들을 적은 문서입니다.  
-다음의 것들을 신경쓰려고 했어요:
-- 오류 상황
+구성은 다음과 같고, '해결' 항목은 정보의 전달을 위해 조금 건조하게 작성하니 양해 바라요:
+- 오류 상황(오류 재현)
 - 원인
 - 해결
+- 참고 _(optional)_
 
 부디, 당신이 겪고 있는 '알 수 없는 오류'가 이 문서에서 해결된 것들 중에 있기를 바라요. :fist:
 
 ## 파워쉘 보안 문제
 
 ### 문제 상황
-저는 cmd 대신 파워쉘로 npm, yarn 등을 설치하고 작업했어요.  
-yarn 설치까지는 성공했는데, 설치 확인을 위해 `yarn -version`을 명령하니,
+저는 파워쉘로 npm, yarn 등을 설치하고 작업했어요.  
+yarn 설치까지는 성공했는데, 설치 확인을 위해 `yarn -version`을 명령하고 다음 오류를 받았어요:
 
 ```sh
 yarn : 이 시스템에서 스크립트를 실행할 수 없으므로
@@ -24,7 +25,7 @@ C:\Users\Administrator\AppData\Roaming\npm\yarn.ps1 파일을 로드할 수 없�
 : 보안 오류: (:) [], PSSecurityException + FullyQualifiedErrorId : UnauthorizedAccess
 ```
 
-이렇게 '실행할 수 없다'는 오류를 격었고, [확장형 뇌 저장소님의 글](https://extbrain.tistory.com/118)을 따라해 해결어요.
+이 문제는 구글링을 통해 읽은, [확장형 뇌 저장소님의 글](https://extbrain.tistory.com/118)을 따라해 해결어요.
 
 ### 원인
 
@@ -33,55 +34,57 @@ C:\Users\Administrator\AppData\Roaming\npm\yarn.ps1 파일을 로드할 수 없�
 
 ### 해결
 
-1. 먼저, 파워쉘을 **관리자 권한** 으로 실행해 줍니다.
-1. 다음의 명령어를 입력해, 파워쉘 정책이 yarn을 제한시키는지 아닌지 알아봅니다.
+1. 파워쉘을 **관리자 권한** 으로 실행 (혹시 모를 권한 문제를 대비)
+1. 다음의 명령어를 입력해, 파워쉘 정책이 yarn을 제한시키는지 아닌지 테스트 (대소문자 무관)
 
 ```sh
 $ ExecutionPolicy
 ```
 
-(대소문자는 중요하지 않아요)
-
-- 아래 그림처럼 'Restricted'라고 뜨면, 보안 정책 문제가 맞습니다.  
+- 'Restricted'라고 뜨면, 보안 정책 문제가 맞습니다.  
   <img :src="$withBase('images/vuepress/ps_001.png')" alt="restricted">
 
-3. 이제 보안 정책을 풀어줍니다.
+3. 보안 정책 해제
 
 ```sh
 $ Set-ExecutionPolicy unRestricted
 ```
 
-중간에 정말 변경할 건지 묻는 질문에 'y'로 동의해주시는 거 잊지 말구요.  
+:::details 중간에 정말 변경할 건지 묻는 질문에 'y'로 동의
 <img :src="$withBase('images/vuepress/ps_002.png')" alt="settingPs">
+:::
 
-4. 확인해봅니다.
+4. 확인
 
+- ExcutionPolicy 명령으로 체크
 ```sh
 $ ExecutionPolicy
 ```
-
+:::details 'Unrestricted'가 떠야 정상
 <img :src="$withBase('images/vuepress/ps_003.png')" alt="compleps">
+:::
 
-다 하셨다면, `yarn -version`을 명령해 문제가 해결되었는지 확인해보세요.
+- `yarn -version`으로 yarn이 제 역할을 수행하는지 체크
 
 ## 베이스 루트 문제
-이 문제의 경우, `dev` 명령은 정상적이고, `build`는 의도대로 일하지 않아요.  
-:::warning 이런 경우(dev는 정상이지만, build는 실패하는 경우)는 많아요.
-여기서 작성한 베이스 루트 문제 외에도 여러 가지 이유로 build만 실패할 수 있어요.  
-따라서, dev는 정상인데 build를 실패했다고 해 베이스 루트 문제일것이라고 해석하기에는 무리가 커요.
+이 문제의 경우, `dev` 명령은 정상적이고, `build`는 의도대로 일하지 않으며, 페이지 빌드 결과물의 레이아웃이 적용되지 않은 상태로 존재해요.  
+:::warning 이건(dev는 정상, build는 실패 및 레이아웃이 깨진 결과물) 흔한 결과물이에요.
+여기서 작성한 베이스 루트 문제 외에도 여러 가지 이유로 build만 실패하고, 검정색 사각형으로 시작하는 '깨진 레이아웃'이 나타날 수 있어요.  
+따라서, 같은 증상이라고 해 베이스 루트 문제일것이라고 해석하기에는 무리가 커요.
 :::
+
+> 같은 결과물, ['Three black rectangle' 이 나온다는 이슈 예시](https://github.com/vuejs/vuepress/issues/575), /vuejs/vuepress/에 올라옴    
+> 물론, 링크된 이슈는 이 오류를 해결하는 데 아무런 도움이 되지 않았음 :grimacing:
 
 ### 문제 상황
 
-`yarn dev` 명령에서는 문제 없이 의도한 페이지가 구성되는데 `yarn build`에서는 레이아웃이 완전히 깨진(기본 테마가 전혀 적용되지 않은) 결과물이 출력됩니다. 제 경우, 세 개의 검정 사각형이 반기는 페이지가 구성되었어요.
+`yarn dev` 명령에서는 문제 없이 의도한 페이지가 구성되는데 `yarn build`에서는 레이아웃이 완전히 깨진 결과물이 출력됩니다. 제 경우, 세 개의 검정 사각형이 반기는 페이지가 구성되었어요.
 
 <img :src="$withBase('images/vuepress/onlyThreeRectangle.png')" alt="rayoutCrashed">
 
-해당 페이지가 빌드 실패가 아닌 '레이아웃의 깨짐'이라고 판단한 건, 페이지를 이루고 있는 내용들은 작성한 내용 그대로 출력되었기 때문이에요. 그러나 기본 테마도, 내용 정리도 이루어지지 않은 이상하게 날것인 html 파일의 모습을 하고있어요.
-
 ### 원인
-뷰프레스 블로그를 구성하다보면, config 파일에 `base=`를 지정하는 파트가 있어요.  
-베이스는 '여러분의 블로그가 시작되는 기반 주소'를 의미하고, 제 블로그의 경우 `/until/` 이 여기에 해당되죠. **이 베이스 주소는, 레포지토리 이름과 일치하거나 없어야 한다는 점 주의하시기 바랍니다.**  
+config 파일에 `base=`의 대소문자를 잘못 적었어요.  
+base는 '여러분의 블로그가 시작되는 기반(루트) 주소'를 의미하고, 제 블로그의 경우 `/until/` 이 여기에 해당되죠. **이 베이스 주소는, 레포지토리 이름과 일치하거나 없어야 한다는 점 주의하시기 바랍니다.**  
 :::: code-group
 ::: code-group-item 베이스 O
 ```js
@@ -100,18 +103,16 @@ base='/'
 :::
 
 ### 해결
-
-오타였어요.
-
 당시 레포지토리 이름은 studyB 였고, 다음과 같이 수정했어요:  
 
+before:
 ```js{2}
 module.exports={
     base : '/studyb/',
     ~~~
    }
 ```
-
+after:
 ```js{2}
 module.exports={
     base : '/studyB/',
@@ -120,24 +121,21 @@ module.exports={
 ```
 
 네 맞아요. 베이스 루트는 무려 대소문자를 구분해요.  
-:::tip 이 오류를 해결하면서
-아, 이래서 레포지토리 이름에 대문자를 쓰지 말라고 하는구나...하고  
-깨달으며 레포지토리 이름을 'study_b'로 바꾸게 되었죠.
+:::tip 이래서 레포지토리 이름에 대문자 쓰는거 아니에요.
+그래서 레포지토리 이름을 'study_b'로 바꾸게 되었죠.
 :::
 :::details 이 블로그의 이름은 study_b가 아니라 until 아닌가요?
 아 죄송해요, 혼선을 드렸네요. study_b는 이전 vuepress 1 framework를 이용할 당시의 블로그 이름이에요. 지금은 vuepress 2 framework를 이용중이구요.
 :::
 
-### 참고
-뷰프레스 테마가 적용되지 않고 세 개의 검은 사각형으로 페이지가 시작되는 오류는 다양한 원인을 가지고 있어요. 여기서 서술한 원인도, 여러가지 경우 중 하나일 뿐이죠. vuejs 공식 깃허브에서도 ['Three black rectangle' 이 나온다는 이슈](https://github.com/vuejs/vuepress/issues/575)가 꽤 흔해요ㅋㅋ
-
-> 참고로, 저 링크에 있는 이슈는 이 오류를 해결하는 데 아무런 도움이 되지 않았습니다 :grimacing:
-
 ## 특정 파일의 추가
-오류는 아니에요. 말 그대로 블로그를 deploying 할 때 '내가 원하는 파일을 추가하고 싶어서' 시도한 내용이죠. 생각보다 쉽고, 꽤 유용해요. 주로 이런 경우에 적용 가능하죠:  
+:::danger 지금은 쓰지 않는 방법이에요.
+html&css 카테고리 예제파일에 적용했던 방법인데, 이제는 그 '예제파일' 구성을 취소했어요. 따라서 필요가 없어졌어요.
+:::
+오류는 아니에요. 말 그대로 블로그를 deploying 할 때 '내가 원하는 파일을 추가하고 싶어서' 시도한 내용이죠. 생각보다 쉽고, 꽤 유용해요. 주로 적용 가능한 경우는:  
 
 1. 구글 서치 콘솔 소유권 증명을 위한 .html 파일 작성
-1. 작성된 사이트맵을 build 결과물에 포함되게끔 설정
+1. 사이트맵을 build 결과물에 포함
 1. 특정한 목적을 가진 페이지(ex: 404.html)의 임의포함
 1. 블로그 문서에 필요한 파일을 임의추가
    - 뷰프레스가 지원하지 않는 파일이더라도 추가하고 링크를 걸어 사용가능
@@ -158,9 +156,9 @@ $ find . -maxdepth 1 -name "src.file" -exec cp {} ./target/ \;
 이 명령은 "src.file" 이라는 파일을 찾아서, ./target/ 에 복사를 실행하라고 하고 있어요.  
 :::details -maxdepth 1
 find 명령은 명령이 실행되는 곳을 기준으로 '모든 하위 디렉토리'를 탐색 대상으로 둬요.  
-이 옵션을 추가해서 현재 폴더에서만 탐색하게끔 할 수 있어요.
+이 옵션을 추가해서 탐색의 최대 깊이를 1로 한정(=현재 폴더)할 수 있어요.
 :::
-> 구글에 `쉘 특정 파일 복사하기` 따위로 검색하면 비슷한 표현식들을 많이 찾을 수 있을거에요.
+> 구글에 `쉘 특정 파일 복사하기` 따위로 검색하면 비슷한 표현식들을 많이 찾을 수 있어요.
 
 이제 이 명령을 적당한 때에 실행해주면 되는데, '적당한 때'를 찾기 위해서 블로그가 어떤 순서로 deploying되고 있는지를 우선적으로 파악해야 해요.  
 
@@ -168,52 +166,51 @@ find 명령은 명령이 실행되는 곳을 기준으로 '모든 하위 디렉�
 
 1. `deploy.sh`를 실행
    - `npm run build` (블로그 빌드)
-      - 빌드 결과물: /dist/
-   - 쉘이 /dist/ 폴더에 접근
-   - /dist/ 폴더에 있는 빌드 결과물을 gh-pages 브랜치로 git push
+      - 빌드 결과물: /dist/ 에 저장
+   - 쉘이 /dist/ 에 접근
+   - /dist/ 에 있는 빌드 결과물을 gh-pages 브랜치로 git push
 
-블로그가 빌드될 때, /dist/에 있는 기존 파일들을 모두 삭제하고 시작해요. 따라서 다음과 같이 순서를 잡아야해요:  
+빌드될 때, /dist/에 있는 기존 파일들은 모두 삭제되고 시작돼요. 따라서 다음과 같이 순서를 잡아야해요:  
 1. `npm run build`
-1. target.file 복사
+1. target.file 복사 _< 추가된 명령_
 1. gh-pages 브랜치로 git push
 
-저는, `npm run build`와 `cd docs/.vuepress/dist` 사이에 다음 명령을 위치시켰어요.
+그래서 `npm run build`와 `cd docs/.vuepress/dist` 사이에 다음 명령을 위치시켰어요.
 
 ```sh
 find . -maxdepth 1 -name "sitemap.xml" -exec cp {} ./docs/.vuepress/dist/ \;
 ```
 
-이 코드는
-1. 블로그가 빌드 
-2. sitemap.xml 파일을 /dist/ 폴더로 복사
-3. 쉘이 gh-pages 브랜치 푸쉬를 위해 /dist/ 폴더로 움직이게끔 해요.
+이 코드는 블로그가 빌드 된 상태(/dist/에 빌드 결과물이 저장된 상태)에서,  
+**sitemap.xml 파일을 /dist/ 폴더로 복사**해요. 이후에 /dist/폴더 내용물이 gh-pages로 푸시되니, sitemap.xml도 같이 푸시되죠.
 
-> 실행되는 타이밍을 보고, 목적하는 경로를 어디로 둘지, 파일은 어디에 있는지 고민해야해요.
+> 실행 타이밍과 그에 따른 파일의 위치, 목적지의 경로가 중요해요.
 
-### 수정
-복사 대상을 '파일 한 개'에서 '폴더'로 바꾸기 위해, 명령어를 **조금** 수정했어요.
+### 개선
+복사 대상을 *'파일'* 한 개에서 *'폴더'* 로 바꾸기 위해, 명령어를 **조금** 수정했어요.
 
 ```sh
-$ cp -r TargetDirectory /PasteToHere/
+$ cp -r TargetFolder /PasteToHere/
 ```
-`find` 명령어는 폴더를 찾는 것도 무리없이 진행하기 때문에 계속 사용하고자 했지만, 복사에 한계가 있어서  
-훨씬 편한 `cp` 명령을 쓰게 되었어요. 위 예시 코드의 cp 명령은 다음과 같은 명령을 수행해요
+`find` 명령어는 복사에 한계가 있어서, 훨씬 편한 `cp` 명령을 쓰게 되었어요. 위 예시 코드의 cp 명령은 다음과 같은 명령을 수행해요
 
-1. 현재 경로에서 'TargetDirectory' 폴더를 찾아
+1. 현재 경로에서 'TargetFolder' 폴더를 찾아
 1. /PasteToHere/에 복사
 
-이렇게 적용했어요:
+그리고, 이렇게 적용했어요:
 ```sh
+...
 # CUSTOM SETTINGS : WROTE BY HAJUN
 
 # -maxdepth 1 : for exclude childe folders
-cd docs/src/targetDirectory
+cd docs/src/
 # copy&past specific 'folder'
-cp -r examples ../../../.vuepress/dist/src/targetDirectory
-# go back to the origin directory
-cd ../../../../
+cp -r TargetFolder ../../../.vuepress/dist/src/PasteToHere/
+# go back to the origin(root) directory
+cd ../../
 
 # CUSTOM SETTINGS: END
+...
 ```
 
 ## 텍스트 깨짐 문제(인코딩 문제)
