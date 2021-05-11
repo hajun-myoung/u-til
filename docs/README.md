@@ -3,7 +3,7 @@ home: true
 heroImage: images/logo.png
 heroAlt: until-logo
 heroText: UNTIL
-tagline: Until is Not Today I Learned
+tagline: UNTIL's Not Today I Learned!
 actions:
   - text: 블로그 열람, 어렵지 않아요! →
     link: /guide/

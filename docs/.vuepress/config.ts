@@ -4,7 +4,7 @@ import type { DefaultThemeOptions } from 'vuepress'
 export default defineUserConfig<DefaultThemeOptions>({
     lang: 'ko-KR',
     title: 'UNTIL',
-    description: "Until is Not Today I Learned",
+    description: "UNTIL's Not Today I Learned!",
     base: '/until/',
     dest: './dist',
     head: [
