@@ -27,6 +27,16 @@ export default defineUserConfig<DefaultThemeOptions>({
     },
     plugins: [
         [
+            "@vuepress/plugin-search",
+            {
+                locales: {
+                    '/' : {
+                        placeholder : "여기서 검색"
+                    }
+                },
+            }
+        ],
+        [
             "@vuepress/container",
             {
               type: "right",
