@@ -131,43 +131,24 @@ C/C++ Extension을 깔아주면, C/C++의 구문 강조, 코드 편집 등이 �
 저는 깃 특성 상 가깝고 한글 디렉토리 이름이 없는, documents(문서)폴더 안에 깃허브용 폴더를 하나 만드시는 걸 추천드려요.
 
 ```sh
-$ cd c:/
-$ cd users
-$ cd <username>
-$ cd documents
+cd c:/
+cd users
+cd Username # Username 자리에 본인 컴퓨터 계정명을 입력해야 해요
+cd documents
 
-$ mkdir <directoryName>
-//directoryName이라는 이름을 가진 폴더를 만드는 명령어에요.
+mkdir directoryname # directoryname이라는 이름을 가진 폴더를 만드는 명령어에요.
+# 임의로 원하는 폴더명을 지정해도 좋아요. 단, 대문자는 지양해요.
 
-$ cd <directoryName>
+cd directoryname # 위에서 임의 폴더명을 넣었다면 여기도 그걸로 실행하세요.
 ```
 
-:::danger $는 치지마세요!
-앞에 $는 타이핑하는 게 아니에요. 뒤에 cd~ 부터 따라 입력하시면 되고,  
-앞 \$는 뒤에 오는 게 쉘 명령어라는 걸 알려주는 장치에요.
-:::
-:::warning &lt,&gt 대신에 임의의 값을 입력하세요!
-&lt username &gt에는 여러분 컴퓨터의 사용자이름(저는 audgk로 되어있네요.)을,  
-&lt directoryName &gt에는 여러분이 깃허브용으로 쓰실 폴더 이름을 쓰시면 돼요.  
-이번에도 역시 &lt &gt는 입력하는 거 아니에요!
-:::
-
-이제 본격적인 클론이에요, 위에 명령어들을 치고 쉘 창을 끄지 않은 상태에서 바로 하셔야돼요.
-:::details 꺼버렸는데 어떡하죠?
-괜찮아요, 해당 경로로 이동만 하면 돼요.
+이제 레포지토리를 클론하세요:
 
 ```sh
-$ cd c:/users/<username>/documents/<directoryName>
+git clone https://github.com/username/foo.git # 복사한 레포지토리 주소를 붙여넣으세요.
 ```
 
-하시고, 따라가세요.
-:::
-
-```sh
-$ git clone <복사한 레포지토리 주소 : 붙여넣기는 우클릭으로 할 수 있어요.>
-```
-
-여기까지 하면, 클론까지 다 하신거에요. 수고하셨어요!
+클론까지 다 되었네요. 수고하셨어요!
 
 ## 준비물 4: Node 와 yarn
 
@@ -180,7 +161,7 @@ Node 하나만 설치하세요. Node가 설치해준다고 하는 다른 들러�
 설치하셨나요? 이제 확인해봅시다.
 
 ```sh
-$ npm -version
+npm -version
 ```
 
 했을 때, 버젼(x.xx.x)이 출력되면 정상이에요.  
@@ -192,13 +173,13 @@ $ npm -version
 yarn을 깔아야겠죠?
 
 ```sh
-$ npm install yarn
+npm install yarn
 ```
 
 마찬가지로, yarn이 잘 깔렸는지 확인합시다.
 
 ```sh
-$ yarn -version
+yarn -version
 ```
 
 이번에도 버젼(x.xx.x)이 출력되면 잘 된거에요.
@@ -213,15 +194,15 @@ yarn을 깔았다면, 초기 셋팅을 해 주어야 겠죠?
 :::details 디렉토리로 이동하는 거, 다시 알고싶으면 누르세요. :)
 
 ```sh
-$ cd c:/users/<username>/documents/<directoryName>
+cd c:/users/<username>/documents/<directoryName>
 ```
 
 쉬운 명령어에요.
 :::
 
 ```sh
-$ yarn install
-$ yarn init -y
+yarn install
+yarn init -y
 ```
 
 여기까지 하면, 뷰프레스를 '설치'할 준비가 끝난거에요. 축하해요!
@@ -229,7 +210,7 @@ $ yarn init -y
 바로, 뷰프레스를 여러분 블로그 폴더(레포지토리 클론)에 설치만 해 둡시다.:smiley:
 
 ```sh
-$ yarn add vuepress -D
+yarn add vuepress -D
 ```
 
 -D 태그는, 현재 폴더에만 의존성으로 설치하는 거에요. (-G, 글로벌과 반대) 우리는 뷰프레스를 이 폴더에서(이 블로그를 위해) 사용할 거니까, 여기에다만 설치하면 되거든요.
