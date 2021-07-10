@@ -5,13 +5,16 @@ export default defineUserConfig<DefaultThemeOptions>({
     lang: 'ko-KR',
     title: 'UNTIL',
     description: "UNTIL's Not Today I Learned!",
+
     base: '/until/',
     dest: './dist',
+
     head: [
         ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' }],
         // ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css' }],
         // 두번째 태그는 recomended 돼서 추가한 것일 뿐, 없어도 math-expression 정상적으로 됨
     ],
+
     extendsMarkdown: (md) => {
         let katex = require('markdown-it-katex');
         
@@ -25,6 +28,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 
         md.use(katex, {"throwOnError" : false, "errorColor" : " #cc0000"});
     },
+
     plugins: [
         [
             "@vuepress/plugin-search",
@@ -53,6 +57,7 @@ export default defineUserConfig<DefaultThemeOptions>({
             },
         ],
     ],
+    
     themeConfig: {
         logo: 'images/logo.png',
         lastUpdated: true,
@@ -62,6 +67,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         contributors: false,
         notFound: ['여기가...어디요?', '앜! 잘못들어와따!', '햇빛이 선명하게 나뭇잎을 핥고 있었다', '많고 많은 사람 중에 그대 한 사람'],
         backToHome: '돌아가자...',
+
         navbar: [
             {
                 text: '테크',
@@ -202,7 +208,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             // guide
             '/guide/': [
                 {
-                    isGroup: true,
                     text: '블로그 열람 가이드',
                     children: [
                         'README.md',
@@ -214,7 +219,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             // programming languages
             '/tech/pg/lang/c/': [
                 {
-                    isGroup: true,
                     text: 'C언어',
                     children: [
                         'README.md',
@@ -224,7 +228,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
             '/tech/pg/lang/python/': [
                 {
-                    isGroup: true,
                     text: 'Python(파이썬)',
                     children: [
                         'README.md',
@@ -233,7 +236,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
             '/tech/pg/lang/js/': [
                 {
-                    isGroup: true,
                     text: 'JavaScript(자바 스크립트)',
                     children: [
                         'README.md',
@@ -242,7 +244,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
             '/tech/pg/lang/html_css/': [
                 {
-                    isGroup: true,
                     text: 'HTML&CSS',
                     children: [
                         'README.md',
@@ -257,7 +258,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             // programming theory
             '/tech/pg/theory/': [
                 {
-                    isGroup: true,
                     text: '프로그래밍 이론',
                     children: [
                         'READMD.md',
@@ -268,7 +268,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             // blog: vuepress and google
             '/tech/blog/google/': [
                 {
-                    isGroup: true,
                     text: '구글 | Google',
                     children: [
                         'README.md',
@@ -279,7 +278,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
             '/tech/blog/vuepress/': [
                 {
-                    isGroup: true,
                     text: '뷰프레스와 블로그 셋팅',
                     children: [
                         'README.md',
@@ -294,7 +292,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             // project: making
             '/pj/making/battery-to-wired/': [
                 {
-                    isGroup: true,
                     text: '배터리에서 유선전원공급으로 바꾸기',
                     children: [
                         'README.md',
@@ -304,7 +301,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
             '/pj/making/debit-card-sys/': [
                 {
-                    isGroup: true,
                     text: '체크카드 시스템 만들기',
                     children: [
                         'README.md',
@@ -316,7 +312,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
             '/pj/making/gimbal/': [
                 {
-                    isGroup: true,
                     text: '짐벌 만들기',
                     children: [
                         'README.md',
@@ -328,7 +323,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             // project: clone-coding
             '/pj/clone-coding/': [
                 {
-                    isGroup: true,
                     text: '클론코딩',
                     children: [
                         'README.md'
@@ -339,7 +333,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             // others: arduino and processing
             '/tech/making/arduino/': [
                 {
-                    isGroup: true,
                     text: '아두이노',
                     children: [
                         'README.md',
@@ -348,7 +341,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
             '/tech/making/processing/': [
                 {
-                    isGroup: true,
                     text: '프로세싱',
                     children: [
                         'README.md',
@@ -359,7 +351,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             // life (with hobby)
             '/life/reading/': [
                 {
-                    isGroup: true,
                     text: "독서와 서평",
                     children: [
                         'README.md',
@@ -369,7 +360,6 @@ export default defineUserConfig<DefaultThemeOptions>({
 
             '/life/hobby/sound-engineering/basic/': [
                 {
-                    isGroup: true,
                     text: '음향 엔지니어링의 기본',
                     children: [
                         'README.md',
@@ -379,7 +369,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
             '/life/hobby/video-editing/': [
                 {
-                    isGroup: true,
                     text: '영상편집',
                     children: [
                         'README.md',
@@ -390,7 +379,6 @@ export default defineUserConfig<DefaultThemeOptions>({
             // non-tech learning
             '/non-tech-learning/csat/math/': [
                 {
-                    isGroup: true,
                     text: "논-테크 공부: 수능수학",
                     children: [
                         'README.md',
