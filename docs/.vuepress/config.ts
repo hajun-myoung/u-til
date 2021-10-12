@@ -13,6 +13,11 @@ export default defineUserConfig<DefaultThemeOptions>({
         ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' }],
         // ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css' }],
         // 두번째 태그는 recomended 돼서 추가한 것일 뿐, 없어도 math-expression 정상적으로 됨
+
+        ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: './images/favicon/apple-touch-icon.png' }],
+        ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: './images/favicon/favicon-32x32.png' }],
+        ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: './images/favicon/favicon-16x16.png' }],
+        ['link', { rel: 'manifest', href: './images/favicon/site.webmanifest' }],
     ],
 
     extendsMarkdown: (md) => {
