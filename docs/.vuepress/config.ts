@@ -281,7 +281,7 @@ export default defineUserConfig<DefaultThemeOptions>({
       "/tech/aws/s3/": [
         {
           text: "AWS S3",
-          children: ["README.md"],
+          children: ["README.md", "til.md"],
         },
       ],
       "/tech/aws/iam/": [
